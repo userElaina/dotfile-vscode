@@ -1,160 +1,129 @@
 
 {
-    "files.defaultLanguage": "txt", // ctrl+N新建文件后默认的语言
-    "editor.formatOnType": false, // （对于C/C++）输入分号后自动格式化当前这一行的代码
-    "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
-    "editor.acceptSuggestionOnEnter": "off", // 我个人的习惯，按回车时一定是真正的换行，只有tab才会接受Intellisense
-    // "editor.snippetSuggestions": "top", // （可选）snippets显示在补全列表顶端，默认是inline
+	// "files.defaultLanguage": "c++", // ctrl+N新建文件后默认的语言
+	"editor.formatOnType": false, // （对于C/C++）输入分号后自动格式化当前这一行的代码
+	"editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
+	"editor.acceptSuggestionOnEnter": "off", // 我个人的习惯，按回车时一定是真正的换行，只有tab才会接受Intellisense
+	// "editor.snippetSuggestions": "top", // （可选）snippets显示在补全列表顶端，默认是inline
 
-    "code-runner.runInTerminal": true, // 设置成false会在“输出”中输出，无法输入
-    "code-runner.executorMapByGlob": {
-        "*.hw":"cd $dir && echo 'Hello world!'",
-        "*.txt":"cat",
-        "*.scala": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py scala $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "*.erl": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py erl $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "*.pas": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py pas $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "*.kt": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py kt $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "*.zhihu": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_zhihu.py zhihu $dir '$fileNameWithoutExt' --in '_py.in' --out '_py.png' && start '_py.png'",
-        "*.svg": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_zhihu.py svg $dir '$fileNameWithoutExt' --in '_py.in' --out '_py.png' && start '_py.png'"
-    },
-    "code-runner.executorMap": {
-        "c": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py c $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        // "c": "cd $dir && clang '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc --target=x86_64-w64-mingw -std=c11 && &'$dir$fileNameWithoutExt'",
-        "cpp": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py cpp $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        // "cpp": "cd $dir && clang++ '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc --target=x86_64-w64-mingw -std=c++20 && &'$dir$fileNameWithoutExt'",
-        "java": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py java $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        // "java": "cd $dir && javac '$fileName' && java '$fileNameWithoutExt'",
-        "python": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py py $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        // "python": "cd $dir && python -u '$fileName'",
-        "php": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py php $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "javascript": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py js $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "r": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py r $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "lua": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py lua $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        // "lua": "cd $dir && lua '$fileName'",
-        "ruby": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py rb $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "csharp": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py cs $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "perl": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py pl $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "shellscript": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py sh $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        // "shellscript": "cd $dir && bash '$fileName'",
-        "rust": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py rs $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "swift": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py swift $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "go": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py go $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "vb": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py vb $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "typescript": "cd $dir && python C:\\all\\Sakura\\Mili\\PY\\py2exe\\ide_runoob.py ts $dir '$fileName' --in '_py.in' --out '_py.log' && cat '_py.log'",
-        "html": "start 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'",
+	"code-runner.runInTerminal": true, // 设置成false会在“输出”中输出，无法输入
+	"code-runner.executorMap": {
+		"c": "chcp 65001 > $null && cd $dir && clang '$fileName' -lpthread -o '$fileNameWithoutExt.exe' -w -g -O2 -static-libgcc --target=x86_64-w64-mingw -std=c11 -finput-charset=UTF-8 -fexec-charset=UTF-8 && &'$dir$fileNameWithoutExt'",
+		"cpp": "chcp 65001 > $null && cd $dir && clang++ '$fileName' -lpthread -o '$fileNameWithoutExt.exe' -w -g -O2 -static-libgcc --target=x86_64-w64-mingw -std=c++20 -finput-charset=UTF-8 -fexec-charset=UTF-8 && &'$dir$fileNameWithoutExt'"
+		// "c": "cd $dir && clang $fileName -o $fileNameWithoutExt.exe -Wall -g -O2 -static-libgcc --target=x86_64-w64-mingw -std=c11 && $dir$fileNameWithoutExt",
+		// "cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt.exe -Wall -g -O2 -static-libgcc --target=x86_64-w64-mingw -std=c++17 && $dir$fileNameWithoutExt"
+	}, // 控制Code Runner命令；未注释的仅适用于PowerShell（Win10默认），文件名中有空格也可以编译运行；注释掉的适用于cmd（win7默认），也适用于PS，文件名中有空格时无法运行
+	"code-runner.saveFileBeforeRun": true, // run code前保存
+	"code-runner.preserveFocus": false, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
+	"code-runner.clearPreviousOutput": false, // 每次run code前清空属于code runner的终端消息，默认false
+	"code-runner.ignoreSelection": true, // 默认为false，效果是鼠标选中一块代码后可以单独执行，但C是编译型语言，不适合这样用
 
-    },
-    "code-runner.saveFileBeforeRun": true, // run code前保存
-    "code-runner.preserveFocus": false, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
-    "code-runner.clearPreviousOutput": false, // 每次run code前清空属于code runner的终端消息，默认false
-    "code-runner.ignoreSelection": true, // 默认为false，效果是鼠标选中一块代码后可以单独执行，但C是编译型语言，不适合这样用
+	"C_Cpp.clang_format_sortIncludes": true, // 格式化时调整include的顺序（按字母排序）
+	"C_Cpp.errorSquiggles": "Disabled", // 因为有clang的lint，所以关掉；如果你看的是别的答主用的不是vscode-clangd，就不要加这个了
+	"C_Cpp.autocomplete": "Disabled", // 同上；这几条也可以考虑放到全局里，否则很多错误会报两遍，cpptools一遍clangd一遍
+	"C_Cpp.suggestSnippets": false,
+	"files.associations": {
+		"random": "c",
+		"string.h": "c",
+		"stdbool.h": "c",
+		"array": "cpp",
+		"atomic": "cpp",
+		"*.tcc": "cpp",
+		"bitset": "cpp",
+		"cctype": "cpp",
+		"clocale": "cpp",
+		"cmath": "cpp",
+		"cstdarg": "cpp",
+		"cstddef": "cpp",
+		"cstdint": "cpp",
+		"cstdio": "cpp",
+		"cstdlib": "cpp",
+		"cstring": "cpp",
+		"ctime": "cpp",
+		"cwchar": "cpp",
+		"cwctype": "cpp",
+		"deque": "cpp",
+		"unordered_map": "cpp",
+		"vector": "cpp",
+		"exception": "cpp",
+		"algorithm": "cpp",
+		"memory": "cpp",
+		"memory_resource": "cpp",
+		"optional": "cpp",
+		"string": "cpp",
+		"string_view": "cpp",
+		"system_error": "cpp",
+		"tuple": "cpp",
+		"type_traits": "cpp",
+		"utility": "cpp",
+		"fstream": "cpp",
+		"initializer_list": "cpp",
+		"iomanip": "cpp",
+		"iosfwd": "cpp",
+		"istream": "cpp",
+		"limits": "cpp",
+		"new": "cpp",
+		"ostream": "cpp",
+		"sstream": "cpp",
+		"stdexcept": "cpp",
+		"streambuf": "cpp",
+		"typeinfo": "cpp",
+		"cfenv": "cpp",
+		"charconv": "cpp",
+		"chrono": "cpp",
+		"cinttypes": "cpp",
+		"codecvt": "cpp",
+		"complex": "cpp",
+		"condition_variable": "cpp",
+		"csetjmp": "cpp",
+		"csignal": "cpp",
+		"cuchar": "cpp",
+		"forward_list": "cpp",
+		"list": "cpp",
+		"unordered_set": "cpp",
+		"functional": "cpp",
+		"iterator": "cpp",
+		"map": "cpp",
+		"numeric": "cpp",
+		"ratio": "cpp",
+		"regex": "cpp",
+		"set": "cpp",
+		"future": "cpp",
+		"iostream": "cpp",
+		"mutex": "cpp",
+		"scoped_allocator": "cpp",
+		"shared_mutex": "cpp",
+		"thread": "cpp",
+		"typeindex": "cpp",
+		"valarray": "cpp" 
+	},
 
-    "C_Cpp.clang_format_sortIncludes": true, // 格式化时调整include的顺序（按字母排序）
-    "C_Cpp.errorSquiggles": "Disabled", // 因为有clang的lint，所以关掉；如果你看的是别的答主用的不是vscode-clangd，就不要加这个了
-    "C_Cpp.autocomplete": "Disabled", // 同上；这几条也可以考虑放到全局里，否则很多错误会报两遍，cpptools一遍clangd一遍
-    "C_Cpp.suggestSnippets": false,
-    "files.associations": {
-        "random": "c",
-        "string.h": "c",
-        "stdbool.h": "c",
-        "array": "cpp",
-        "atomic": "cpp",
-        "*.tcc": "cpp",
-        "bitset": "cpp",
-        "cctype": "cpp",
-        "clocale": "cpp",
-        "cmath": "cpp",
-        "cstdarg": "cpp",
-        "cstddef": "cpp",
-        "cstdint": "cpp",
-        "cstdio": "cpp",
-        "cstdlib": "cpp",
-        "cstring": "cpp",
-        "ctime": "cpp",
-        "cwchar": "cpp",
-        "cwctype": "cpp",
-        "deque": "cpp",
-        "unordered_map": "cpp",
-        "vector": "cpp",
-        "exception": "cpp",
-        "algorithm": "cpp",
-        "memory": "cpp",
-        "memory_resource": "cpp",
-        "optional": "cpp",
-        "string": "cpp",
-        "string_view": "cpp",
-        "system_error": "cpp",
-        "tuple": "cpp",
-        "type_traits": "cpp",
-        "utility": "cpp",
-        "fstream": "cpp",
-        "initializer_list": "cpp",
-        "iomanip": "cpp",
-        "iosfwd": "cpp",
-        "istream": "cpp",
-        "limits": "cpp",
-        "new": "cpp",
-        "ostream": "cpp",
-        "sstream": "cpp",
-        "stdexcept": "cpp",
-        "streambuf": "cpp",
-        "typeinfo": "cpp",
-        "cfenv": "cpp",
-        "charconv": "cpp",
-        "chrono": "cpp",
-        "cinttypes": "cpp",
-        "codecvt": "cpp",
-        "complex": "cpp",
-        "condition_variable": "cpp",
-        "csetjmp": "cpp",
-        "csignal": "cpp",
-        "cuchar": "cpp",
-        "forward_list": "cpp",
-        "list": "cpp",
-        "unordered_set": "cpp",
-        "functional": "cpp",
-        "iterator": "cpp",
-        "map": "cpp",
-        "numeric": "cpp",
-        "ratio": "cpp",
-        "regex": "cpp",
-        "set": "cpp",
-        "future": "cpp",
-        "iostream": "cpp",
-        "mutex": "cpp",
-        "scoped_allocator": "cpp",
-        "shared_mutex": "cpp",
-        "thread": "cpp",
-        "typeindex": "cpp",
-        "valarray": "cpp" 
-    }, // 同上
-
-    "update.enableWindowsBackgroundUpdates": true,    
-    "background.customImages": [
-		"file:///C:/All/Diy/Path/2.png",
+	"update.enableWindowsBackgroundUpdates": true,    
+	"background.customImages": [
+		// "file:///C:/All/Diy/Path/2.png",
 		// "file:///C:/All/Diy/Path/7.png"
 	],
 	"background.styles": [
-        {
+		{
 			// "content":"''",
 			// "pointer-events":"none",
-			// "position":"absolute",//图片位置
+			// "position":"absolute",
 			// "width":"100%",
 			// "height":"100%",
 			// "z-index":"99999",
-			// "background-size":"25%,25%",//图片大小
-			"background-position": "90% 60%",
-            "background.repeat":"no-repeat",
-            "background-size":"cover",
-            "opacity":0.3
-        },	
-        {
+			"background-size":"12.5%,12.5%",
+			// "background-position": "90% 60%",
+			"background.repeat":"no-repeat",
+			// "background-size":"cover",
+			"opacity":0.3
+		},	
+		{
 			"background-position": "50% 50%",
-            "background.repeat":"no-repeat",
-            "background-size":"cover",
-            "opacity":0.5
-        }
+			"background.repeat":"no-repeat",
+			"background-size":"cover",
+			"opacity":0.5
+		}
 	],
-    "background.useFront": false,
-    "background.useDefault": false,//是否使用默认图
+	"background.useFront": false,
+	"background.useDefault": true,//是否使用默认图
 }
